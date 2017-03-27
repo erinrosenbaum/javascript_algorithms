@@ -138,6 +138,33 @@ print_array(arr_3);
 var arr_4 = add_7(arr_3);
 print_array(arr_4);
 
+function reverse_array_in_place(numArr){
+	var mid = numArr.length / 2; // integer math
+	var len = numArr.length;
+	var temp;
+	for(i=0; i<mid; i++){
+		temp = numArr[len-1-i];
+		numArr[len-1-i] = numArr[i];
+		numArr[i] = temp;
+	}
+}
+var array_4 = [34, 76, 34, 35, 1, 90];
+var array_5 = [34, 76, 34, 1, 90];
+print_array(array_4);
+print_array(array_5);
+reverse_array_in_place(array_4);
+reverse_array_in_place(array_5);
+print_array(array_4);
+print_array(array_5);
 
-
-
+// loop through the array and remove the first element 
+// keep the last n numbers of the array
+function only_keep_last_few(numArr, num){
+	var remaining = numArr.length - num;
+	for(i = 0; i < remaining; i++){
+		numArr.splice(0, 1);
+	}
+}
+var arr_6 = [60, 55, 7, 9, 5, 99, 117, 66, 44, 2, 66, 32, 6, 45, 47, 49];
+only_keep_last_few(arr_6, 5);
+print_array(arr_6);
