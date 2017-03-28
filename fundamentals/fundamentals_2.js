@@ -1,4 +1,11 @@
 var i;
+function print_array(arr){
+	var i;
+	console.log("********** beginning print_array**********")
+	for(i = 0; i < arr.length; i++){
+		console.log(arr[i]);
+	}
+}
 
 function sigma(num){
 	var sum=0;
@@ -91,4 +98,42 @@ extractMostSigDigit(76543);
 extractMostSigDigit(3);
 extractMostSigDigit(367);
 
+function roll_till_double(){
+var num = Math.trunc((Math.random()*20)+1);
+	return num;
+}
+function run_rolls(){
+	var arr = [];
+	var has_doubled = 0;
+	var num0 = roll_till_double();
+	arr.push(num0);
+	var count = 1;
+	var min = num0;
+	var max = num0;
+	var avarage = 0.00;
+	var sum = num0;
+
+	
+	// flag variable to identify when to quit while loop
+	while(has_doubled == 0){
+		var num1 = roll_till_double();
+		sum += num1;
+		count++;
+		if(num1 < min){min = num1;}
+		if(num1 > max){max = num1;}
+		// for each new number, loop over array and search for matches
+		for(i=0; i<arr.length; i++){
+			if(num1 == arr[i]) {has_doubled = 1;}
+		}
+		arr.push(num1);
+	}
+	average = sum / count;
+	print_array(arr);
+	console.log("number of rolls: " + count);
+	console.log("sum: " + sum);
+	console.log("min: " + min);
+	console.log("max: " + max);
+	console.log("average: " + average);
+}
+run_rolls();
 
